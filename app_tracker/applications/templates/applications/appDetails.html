@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>App Details</title>
+</head>
+<body>
+    <h1><u>{{ application.companyName }}</u> application</h1>
+
+    <h2>Position: {{ application.position }}</h2>
+
+    <p>
+        <a href="{{ application.jobLink }}">Job Post</a>
+    </p>
+
+    {% if application.location %}
+        <P>
+            <b>Location:</b> {{ application.location }}
+        </P>
+    {% endif %}
+
+    {% if application.notes %}
+        <P>
+            <b>Notes:</b> {{ application.notes }}
+        </P>
+    {% endif %}
+
+</body>
+</html>
