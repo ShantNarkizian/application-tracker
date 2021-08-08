@@ -5,7 +5,7 @@
     <title>App Details</title>
 </head>
 <body>
-    <h1><u>{{ application.companyName }}</u> application</h1>
+    <h1><u>{{ application.company_name }}</u> application</h1>
 
     <h2>Position: {{ application.position }}</h2>
 
@@ -14,15 +14,15 @@
     </p>
 
     {% if application.location %}
-        <P>
-            <b>Location:</b> {{ application.location }}
-        </P>
+    <P>
+        <b>Location:</b> {{ application.location }}
+    </P>
     {% endif %}
 
     {% if application.notes %}
-        <P>
-            <b>Notes:</b> {{ application.notes }}
-        </P>
+    <P>
+        <b>Notes:</b> {{ application.notes }}
+    </P>
     {% endif %}
 
 </body>

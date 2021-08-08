@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Create application for a new Job</h1>
+    <form method="post">
+        <table>
+            {{ form }}
+        </table>
+        {% csrf_token %}
+        <button type="submit">Create</button>
+    </form>
+
+</body>
+</html>
