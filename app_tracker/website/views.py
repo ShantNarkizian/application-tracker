@@ -8,7 +8,7 @@ def website(request):
                                                       "interviews": Interview.objects.all()})
 
 
-ApplicationForm = modelform_factory(Application, exclude=[])
+ApplicationForm = modelform_factory(Application, exclude=["archived"])
 
 
 def new_application(request):
@@ -24,4 +24,9 @@ def new_application(request):
 
 def about_page(request):
     return render(request, "website/about.html")
+
+
+def archive_page(request):
+    return render(request, "website/archive.html", {"applications": Application.objects.all(),
+                                                      "interviews": Interview.objects.all()})
 

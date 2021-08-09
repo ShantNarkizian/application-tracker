@@ -1,4 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
+
+import website.views
 from .models import Application, Interview
 from django.forms import modelform_factory
 
@@ -7,6 +9,12 @@ from django.forms import modelform_factory
 
 def details(request, company):
     app = get_object_or_404(Application, pk=company)
+    if request.method == "POST":
+        #app.delete()
+        app.archived = True
+        app.save()
+        return website.views.website(request)
+
     return render(request, "applications/appDetails.html", {"application": app})
 
 

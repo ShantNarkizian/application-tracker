@@ -1,19 +1,17 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Archives{% endblock %}
 
 {% block content %}
-
     <div>
         <h1 class="header">
-            Interviews
+            Archived Interviews
         </h1>
-
-        <button onclick="location.href='{% url 'new_interview' %}'" type="button">Add interview</button>
 
         <ul>
             {% for intv in interviews %}
-                {% if not intv.application.archived %}
+                {% if intv.application.archived %}
                 <li>
                     <a href="{% url 'interview_details' intv.application.company_name %}">
                         {{ intv.interview_type}} with {{ intv.application.company_name }} on <b>{{ intv.interview_date }}</b>
@@ -27,16 +25,12 @@
 
 
     <h1 class="header">
-        Applications
+        Archived Applications
     </h1>
-
-    <button onclick="location.href='{% url 'new_application' %}'" type="button">
-             Add application
-    </button>
 
     <ul>
         {% for app in applications %}
-            {% if not app.archived %}
+            {% if app.archived %}
             <li>
                 <a href="{% url 'details' app.company_name %}">
                     {{ app.company_name }}
@@ -46,4 +40,5 @@
             {% endif %}
         {% endfor %}
     </ul>
+
 {% endblock %}

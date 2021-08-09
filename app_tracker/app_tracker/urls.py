@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from website.views import website, new_application, about_page
+from website.views import website, new_application, about_page, archive_page
 from applications.views import new_interview
 
 urlpatterns = [
@@ -25,5 +25,6 @@ urlpatterns = [
     path('new_interview', new_interview, name='new_interview'),
     path('newapp', new_application, name="new_application"),
     path('about', about_page, name="about_page"),
+    path('archive', archive_page, name="archive_page"),
     path('application/', include("applications.urls")),
 ]

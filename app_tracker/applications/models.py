@@ -1,8 +1,6 @@
 from django.db import models
 from datetime import time
 
-# Create your models here.
-
 
 class Application(models.Model):
     company_name = models.CharField(primary_key=True, max_length=100)
@@ -10,6 +8,7 @@ class Application(models.Model):
     jobLink = models.CharField(max_length=500, blank=True, null=True)
     location = models.CharField(max_length=500, blank=True, null=True)
     notes = models.CharField(max_length=500, blank=True, null=True)
+    archived = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Company: {self.company_name}"

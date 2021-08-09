@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>App Details</title>
-</head>
-<body>
-    <h1><u>{{ application.company_name }}</u> application</h1>
+{% extends "base.html" %}
 
-    <h2>Position: {{ application.position }}</h2>
+{% block title %}App Details{% endblock %}
+
+{% block content %}
+    <h1 class="header"><u>{{ application.company_name }}</u> application</h1>
+
+    <h2>Position is for a {{ application.position }}</h2>
 
     <p>
         <a href="{{ application.jobLink }}">Job Post</a>
@@ -15,15 +13,20 @@
 
     {% if application.location %}
     <P>
-        <b>Location:</b> {{ application.location }}
+        The position is located in <b>{{ application.location }}</b>
     </P>
     {% endif %}
 
     {% if application.notes %}
     <P>
-        <b>Notes:</b> {{ application.notes }}
+        Notes: {{ application.notes }}
     </P>
     {% endif %}
 
-</body>
-</html>
+    <form action="" method="post">
+        {% csrf_token %}
+        <button type="submit">Archive Application</button>
+    </form>
+
+
+{% endblock %}
