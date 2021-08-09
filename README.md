@@ -1,5 +1,5 @@
 # application-tracker
 
-Simple website that helps you track job applications
+Simple website that helps users track job applications and interviews.
 
-built using Django
+Built using Django.
