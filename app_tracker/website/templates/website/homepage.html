@@ -1,61 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>
-    Job Tracker
-</h1>
+{% extends "base.html" %}
 
-<ul>
-    <li>
-        <a href="https://www.google.com"> Home</a>
-    </li>
-    <li>
-        <a href="https://www.google.com"> Archive</a>
-    </li>
-    <li>
-        <a href="https://www.google.com"> About</a>
-    </li>
-</ul>
+{% block title %}Home{% endblock %}
 
-<h1>
-    Interviews
-</h1>
+{% block content %}
 
-<button onclick="location.href='{% url 'new_interview' %}'" type="button">Add interview</button>
+    <div>
+        <h1 class="header">
+            Interviews
+        </h1>
 
-<ul>
-    {% for intv in interviews %}
-    <li>
-        {{ intv.interview_type}} with {{ intv.application.company_name }} on <b>{{ intv.interview_date }}</b>
-    </li>
-    {% endfor %}
-</ul>
+        <button onclick="location.href='{% url 'new_interview' %}'" type="button">Add interview</button>
+
+        <ul>
+            {% for intv in interviews %}
+            <li>
+                <a href="{% url 'interview_details' intv.application.company_name %}">
+                    {{ intv.interview_type}} with {{ intv.application.company_name }} on <b>{{ intv.interview_date }}</b>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
 
 
-<h1>
-    Applications
-</h1>
+    <h1 class="header">
+        Applications
+    </h1>
 
-<button onclick="location.href='{% url 'newApplication' %}'" type="button">
-         New
-</button>
+    <button onclick="location.href='{% url 'new_application' %}'" type="button">
+             Add application
+    </button>
 
-<ul>
-    {% for app in applications %}
-    <li>
-        <a href="{% url 'details' app.company_name %}">
-            {{ app.company_name }}
-        </a>
+    <ul>
+        {% for app in applications %}
+        <li>
+            <a href="{% url 'details' app.company_name %}">
+                {{ app.company_name }}
+            </a>
 
-    </li>
-    {% endfor %}
-</ul>
+        </li>
+        {% endfor %}
+    </ul>
 
-
-</body>
-</html>
+{% endblock %}

@@ -10,6 +10,11 @@ def details(request, company):
     return render(request, "applications/appDetails.html", {"application": app})
 
 
+def interview_details(request, company):
+    interview = get_object_or_404(Interview, pk=company)
+    return render(request, "applications/interviewDetails.html", {"intv": interview})
+
+
 ApplicationForm = modelform_factory(Interview, exclude=[])
 
 

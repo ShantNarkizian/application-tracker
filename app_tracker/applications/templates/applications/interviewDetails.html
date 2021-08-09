@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+    <h1 class="header">
+        <u>{{ intv.application.company_name }}</u> Interview Details:
+    </h1>
+
+    <p>
+        The interview is on <b class="important">{{ intv.interview_date }}</b> at
+        <b class="important">{{ intv.start_time }}</b> and will be {{ intv.duration }} hr(s)
+    </p>
+    <p>
+        This will be <b>{{ intv.interview_type }}</b> interview
+    </p>
+
+{% endblock %}

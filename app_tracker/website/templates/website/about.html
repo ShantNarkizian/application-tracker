@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+    <h1>about me:</h1>
+    <p>
+        My name is Shant and I like building new projects that will tickle my brain.
+    </p>
+
+    <img src="{% static 'website/face.jpg' %}" width="400px">
+
+    <p>This website is built using Django!</p>
+
+{% endblock %}

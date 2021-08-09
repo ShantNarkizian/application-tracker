@@ -21,3 +21,7 @@ def new_application(request):
         form = ApplicationForm()
     return render(request, "applications/newApplication.html", {"form": form})
 
+
+def about_page(request):
+    return render(request, "website/about.html")
+
